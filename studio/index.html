@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Multiverse Studio prototype for inspecting agent tasks, runs, evidence, Memory DNA candidates, skills, and evaluation results.">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Multiverse Studio</title>
+  <link rel="stylesheet" href="styles.css?v=4">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="bar shell-width">
+      <a class="logo" href="#main-content" aria-label="Multiverse Studio home">multiverse</a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav class="nv" id="nav" aria-label="Studio"></nav>
+      <span class="tag" id="tg" role="status">Prototype · scripted</span>
+    </div>
+  </header>
+
+  <main class="col shell-width" id="main-content" tabindex="-1">
+    <section class="pg on" id="p-arena" aria-labelledby="task-title">
+      <div class="hero">
+        <div class="hero-visual" aria-hidden="true">
+          <img src="../public/media/painted-signal.jpg" alt="" width="960" height="1200">
+          <span class="visual-label">Task studio</span>
+          <div class="mascot-stage" id="orb">
+            <img src="../public/mascot/thinking.svg" alt="">
+          </div>
+        </div>
+        <div class="greet">
+          <p class="eyebrow">New task</p>
+          <h1 id="task-title">Start with a task we can check.</h1>
+          <p>This prototype compares approaches and records evidence. Agreement alone does not verify a result.</p>
+        </div>
+        <div class="stl" aria-live="polite" aria-atomic="true">
+          <span id="st">Ready for a task</span>
+          <div class="wave" id="wave" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div id="usr"></div>
+      <div class="cast" id="cast"></div>
+
+      <section class="board" id="board" aria-labelledby="map-title">
+        <div class="bh"><b id="map-title">Approach map</b><span id="rc">Round 1 of 2</span></div>
+        <div id="rows" class="mp"></div>
+      </section>
+
+      <section class="tp" id="tp" aria-labelledby="trace-toggle">
+        <button class="th" id="tt" type="button" aria-expanded="true" aria-controls="think">
+          <span class="spin" aria-hidden="true"></span>
+          <span id="tl">Execution trace</span>
+          <span class="disclosure" aria-hidden="true"></span>
+        </button>
+        <div class="tb" id="think"></div>
+      </section>
+
+      <div id="final" aria-live="polite"></div>
+      <div id="meta"></div>
+
+      <div class="comp">
+        <div class="sug" id="sug" aria-label="Example tasks">
+          <button class="pill" type="button">Compare two agent runs and identify where they diverge</button>
+          <button class="pill" type="button">Find missing project documents and explain why they matter</button>
+        </div>
+        <div class="box">
+          <label class="sr-only" for="in">Task objective</label>
+          <input id="in" placeholder="Describe a task with a checkable outcome" autocomplete="off">
+          <button id="send" type="button" aria-label="Start run"><span class="send-label">Run</span></button>
+        </div>
+        <p class="note"><strong>Prototype:</strong> scripted mode demonstrates the interaction. It does not prove agent capability. Live execution requires an explicitly connected runner.</p>
+      </div>
+    </section>
+
+    <section class="pg" id="p-st" aria-labelledby="runs-title">
+      <div class="workspace-intro">
+        <div class="workspace-copy">
+          <p class="eyebrow">Run history</p>
+          <h2 id="runs-title">Runs</h2>
+          <p class="lede2">Review local attempts, resource estimates, alternatives, and comparison links.</p>
+          <div class="intro-facts" aria-label="Run review priorities"><span>Attempts</span><span>Evidence</span><span>Differences</span></div>
+        </div>
+        <figure class="workspace-visual visual-runs">
+          <img src="../public/media/sky-portal.jpg" alt="" width="960" height="1200">
+          <figcaption><span>Recorded paths</span><strong>Review before reuse</strong></figcaption>
+          <span class="visual-mascot" aria-hidden="true"><img src="../public/mascot/celebrate.svg" alt=""></span>
+        </figure>
+      </div>
+      <div id="sg"></div>
+    </section>
+
+    <section class="pg" id="p-mem" aria-labelledby="memory-title">
+      <div class="workspace-intro">
+        <div class="workspace-copy">
+          <p class="eyebrow">Reusable experience</p>
+          <h2 id="memory-title">Memory candidates</h2>
+          <p class="lede2">Run decisions arrive here as unverified candidates. Only verified, applicable memory may be retrieved by an agent.</p>
+          <div class="intro-facts" aria-label="Memory review priorities"><span>Source</span><span>Scope</span><span>Review</span></div>
+        </div>
+        <figure class="workspace-visual visual-memory">
+          <img src="../public/media/mascot-field.jpg" alt="" width="960" height="1200">
+          <figcaption><span>Candidate library</span><strong>Keep context attached</strong></figcaption>
+        </figure>
+      </div>
+      <div class="row2">
+        <label class="sr-only" for="mq">Search memory candidates</label>
+        <input id="mq" placeholder="Search candidates">
+        <label class="sr-only" for="ma">Add a task-local note</label>
+        <input id="ma" placeholder="Add a task-local note">
+        <button class="pill" id="mab" type="button">Add note</button>
+      </div>
+      <div id="ml"></div>
+    </section>
+
+    <section class="pg" id="p-ver" aria-labelledby="verses-title">
+      <div class="workspace-intro">
+        <div class="workspace-copy">
+          <p class="eyebrow">Alternative approaches</p>
+          <h2 id="verses-title">Verses</h2>
+          <p class="lede2">Compare recorded alternatives and preserve dissent. A selected Verse is a working choice, not proof of correctness.</p>
+          <div class="intro-facts" aria-label="Verse comparison priorities"><span>Branch</span><span>Compare</span><span>Preserve</span></div>
+        </div>
+        <figure class="workspace-visual visual-verses">
+          <img src="../public/media/story-ribbons.jpg" alt="" width="960" height="1200">
+          <figcaption><span>Alternative paths</span><strong>Dissent stays visible</strong></figcaption>
+          <span class="visual-mascot" aria-hidden="true"><img src="../public/mascot/point.svg" alt=""></span>
+        </figure>
+      </div>
+      <div class="row2">
+        <label class="sr-only" for="va">First run or Verse</label>
+        <select id="va"></select>
+        <label class="sr-only" for="vb">Second run or Verse</label>
+        <select id="vb"></select>
+      </div>
+      <div id="vt"></div>
+      <div id="vm" class="section-actions"></div>
+    </section>
+
+    <section class="pg" id="p-bld" aria-labelledby="execution-title">
+      <div class="workspace-intro">
+        <div class="workspace-copy">
+          <p class="eyebrow">Controlled execution</p>
+          <h2 id="execution-title">Execution</h2>
+          <p class="lede2">Turn a selected specification into a plan or sandboxed test. Simulated builders remain clearly labeled and never count as capability evidence.</p>
+          <div class="intro-facts" aria-label="Execution priorities"><span>Plan</span><span>Sandbox</span><span>Verify</span></div>
+        </div>
+        <figure class="workspace-visual visual-execution">
+          <img src="../public/media/painted-signal.jpg" alt="" width="960" height="1200">
+          <figcaption><span>Execution boundary</span><strong>Nothing runs silently</strong></figcaption>
+          <span class="visual-mascot" aria-hidden="true"><img src="../public/mascot/neutral.svg" alt=""></span>
+        </figure>
+      </div>
+      <div id="bs"></div>
+      <div class="row2" id="bb"></div>
+      <pre id="bp"></pre>
+      <div id="bl"></div>
+    </section>
+
+    <section class="pg" id="p-sim" aria-labelledby="evaluation-title">
+      <div class="workspace-intro">
+        <div class="workspace-copy">
+          <p class="eyebrow">Held-out evaluation</p>
+          <h2 id="evaluation-title">Evaluation</h2>
+          <p class="lede2">Benchmark baseline vs. treatment arms on held-out repository tasks under matched budgets. Inspect pass rates, cost per verified success, and negative transfer.</p>
+          <div class="intro-facts" aria-label="Evaluation priorities"><span>Matched budgets</span><span>Held-out tests</span><span>Negative transfer</span></div>
+        </div>
+        <figure class="workspace-visual visual-evaluation">
+          <img src="../public/media/green-orbit.jpg" alt="" width="960" height="1200">
+          <figcaption><span>Evaluation field</span><strong>Compare under one contract</strong></figcaption>
+          <span class="visual-mascot" aria-hidden="true"><img src="../public/mascot/celebrate.svg" alt=""></span>
+        </figure>
+      </div>
+      <div class="row2" id="simc"></div>
+      <canvas id="simcv" width="900" height="390" aria-label="Hover-controller evaluation visualization"></canvas>
+      <div id="simt" class="section-actions"></div>
+    </section>
+
+    <section class="pg" id="p-set" aria-labelledby="settings-title">
+      <div class="workspace-intro">
+        <div class="workspace-copy">
+          <p class="eyebrow">Configuration</p>
+          <h2 id="settings-title">Settings</h2>
+          <p class="lede2">Review decision authority, runner availability, privacy, and local data before starting a run.</p>
+          <div class="intro-facts" aria-label="Configuration priorities"><span>Authority</span><span>Privacy</span><span>Runner</span></div>
+        </div>
+        <figure class="workspace-visual visual-settings">
+          <img src="../public/media/soft-companion.jpg" alt="" width="960" height="1200">
+          <figcaption><span>System boundary</span><strong>Choose what can act</strong></figcaption>
+          <span class="visual-mascot" aria-hidden="true"><img src="../public/mascot/welcome.svg" alt=""></span>
+        </figure>
+      </div>
+      <div id="se"></div>
+    </section>
+
+    <section class="pg" id="p-brd" aria-labelledby="shared-title">
+      <div class="workspace-intro">
+        <div class="workspace-copy">
+          <p class="eyebrow">Optional collaboration</p>
+          <h2 id="shared-title">Shared activity</h2>
+          <p class="lede2" id="brdn"></p>
+          <div class="intro-facts" aria-label="Shared activity priorities"><span>Private first</span><span>Explicit sharing</span><span>Review</span></div>
+        </div>
+        <figure class="workspace-visual visual-shared">
+          <img src="../public/media/story-ribbons.jpg" alt="" width="960" height="1200">
+          <figcaption><span>Shared paths</span><strong>Publish only by choice</strong></figcaption>
+          <span class="visual-mascot" aria-hidden="true"><img src="../public/mascot/welcome.svg" alt=""></span>
+        </figure>
+      </div>
+      <div id="brd"></div>
+    </section>
+  </main>
+
+  <footer class="studio-footer shell-width">
+    <span>Multiverse Studio prototype</span>
+    <span>No production learning loop is connected.</span>
+  </footer>
+
+  <script src="core-client.js?v=4" defer></script>
+  <script src="app.js?v=4" defer></script>
+</body>
+</html>

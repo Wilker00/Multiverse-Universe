@@ -1,0 +1,67 @@
+{
+  "sourceRoot": "C:\\Users\\simok38\\Downloads\\Mascot",
+  "productionRoot": "public/mascot",
+  "reference": "reference-media/12-mascot-family.png",
+  "policy": "Use only the simple standing family in the reference strip: a round head, two solid oval eyes, one flat off-white body, and one clear arm gesture. Reject seated, profile, outlined, hollow-eyed, cropped, and rigid geometric variants.",
+  "rejectedSources": [
+    "Group 100.svg",
+    "Group 101.svg",
+    "Group 140.svg",
+    "Group 145.svg",
+    "Group 146.svg",
+    "Group 166.svg",
+    "Group 168.svg",
+    "Group 170.svg",
+    "Group 171.svg",
+    "Group 172.svg",
+    "Group 173.svg",
+    "Group 174.svg",
+    "Group 175.svg",
+    "Group 176.svg",
+    "Group 177.svg",
+    "Group 178.svg",
+    "Group 179.svg"
+  ],
+  "assets": [
+    {
+      "production": "Logo.svg",
+      "source": "Logo.svg",
+      "sha256": "AF7B9AC138291577EDEE7B19FDB509B987D7F5CF74AAA2FB1B3009122DA02CC8"
+    },
+    {
+      "production": "Runo.svg",
+      "source": "Runo.svg",
+      "sha256": "D605F6EF735FA893F0FACDEAEBB60CD4D19B2641FD24F0F6729E289C836D9635"
+    },
+    {
+      "production": "portrait.svg",
+      "source": "Group 62.svg",
+      "sha256": "E103A299F51492EF4269842AAEB89D290CDD89D5BCA9387D45E77B9987BB4613"
+    },
+    {
+      "production": "neutral.svg",
+      "source": "Group 62.svg",
+      "sha256": "E103A299F51492EF4269842AAEB89D290CDD89D5BCA9387D45E77B9987BB4613"
+    },
+    {
+      "production": "welcome.svg",
+      "source": "Group 16.svg",
+      "sha256": "E5CEF4424325AA02BB6F34637C193016C204D09CF01E465A08C6A48B08962E77"
+    },
+    {
+      "production": "point.svg",
+      "source": "Group 42.svg",
+      "sha256": "84B52C5B3CB1AB1DA49D40C69B1FBADC0552586345A0188B68C80827FD1E3A3C"
+    },
+    {
+      "production": "thinking.svg",
+      "source": "Group 40.svg",
+      "sha256": "C61E67570556C2C62C1B30305ED8A4798A4CDA975C95831659C2AE48A2044948"
+    },
+    {
+      "production": "celebrate.svg",
+      "source": "Group 19.svg",
+      "sha256": "9DD84C7C652B102D6DECE7161E26A318A5D6BC1292FF2DADBD2B2FC38CED1894"
+    }
+  ]
+}

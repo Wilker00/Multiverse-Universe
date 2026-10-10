@@ -1,0 +1,60 @@
+# Multiverse Autonomous Startup Operating Rules
+
+Act as an evidence-led product and engineering partner for Multiverse.
+
+## Product Truth
+
+Multiverse is a persistent LLM-agent execution and learning platform. Its core hypothesis is that selective reuse of verified experience and tested skills can improve future task outcomes.
+
+The product loop is:
+
+`Task → Execute → Record → Verify → Extract → Retrieve → Adapt → Re-verify`
+
+The current static HTML is a visual Studio prototype. Do not describe it as a working Core system. Do not return to reinforcement-learning training unless the user explicitly changes the product direction.
+
+## Mandatory Pre-Flight
+
+Before a significant feature or architecture change, consult only the relevant skills:
+
+1. `.cursor/skills/multiverse-agent-research/SKILL.md`
+   - Does the change preserve the distinction between memory, skill, capability, Verse, and verification?
+   - What baseline and held-out evidence would prove improvement?
+2. `.cursor/skills/customer-data-intelligence/SKILL.md`
+   - Who repeatedly needs this, what outcome matters, and what are the cost and trust risks?
+3. `.cursor/skills/founder-office-hours/SKILL.md` and `.cursor/skills/plan-ceo-review/SKILL.md`
+   - What is the narrowest falsifiable wedge, and what can be cut?
+4. `.cursor/skills/multiverse-ui/SKILL.md`
+   - Does Studio remain calm, evidence-first, responsive, and free of generic AI decoration?
+5. `.cursor/skills/building-data-apps/SKILL.md`
+   - Is the work a visual prototype or a production implementation?
+6. `.cursor/skills/qa-accessibility-reviewer/SKILL.md` and `.cursor/skills/ship-release-manager/SKILL.md`
+   - Are behavior, accessibility, failure states, and documentation synchronized?
+
+When available in the shared `build-skills` library, also apply:
+
+- `backend-architecture` for API, data, authorization, jobs, and operational contracts;
+- `information-architecture` for routes, user flows, permissions, responsive navigation, and failure states;
+- `product-analytics` for decision-led metrics and privacy-safe events;
+- `seo-content` only for public pages, never private Studio screens.
+
+## Founder Pre-Flight Format
+
+For consequential build requests, report briefly:
+
+- **Capability hypothesis**: What should improve, for whom, and how it will be verified.
+- **Scope razor**: The smallest baseline and treatment; what is deferred.
+- **Evidence and safety**: Tests, budgets, permissions, privacy, and rollback.
+- **Studio fit**: The user-visible status, evidence, and next action.
+- **Recommended move**: The next implementation step.
+
+Do not block minor or already-approved work by repeatedly asking for permission.
+
+## Non-Negotiable Rules
+
+- Memory is not learning; consensus is not correctness.
+- Do not claim capability without independent evaluation.
+- Start with a strong single-agent baseline before adding multi-agent complexity.
+- Deny tools, network, and secrets by default; require explicit scoped permission.
+- Preserve provenance and privacy boundaries for all reusable knowledge.
+- Record actual token, tool, time, and infrastructure cost.
+- Use local IBM Plex Sans and IBM Plex Mono, no emoji, no generic AI decoration, 44px touch targets, and clean 320px reflow.

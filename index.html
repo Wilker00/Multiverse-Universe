@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Multiverse tests whether AI agents can reuse verified experience to complete future repository tasks more reliably.">
+  <title>Multiverse - Verified memory for AI agents</title>
+  <link rel="icon" href="public/favicon.svg?v=4" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=33">
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true">
+    <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="m14.5 6.5-5.5 5.5 5.5 5.5"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="m9.5 6.5 5.5 5.5-5.5 5.5"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="m7 7 10 10M17 7 7 17"/></symbol>
+    <symbol id="icon-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></symbol>
+    <symbol id="icon-home" viewBox="0 0 24 24"><path d="m4 10 8-6 8 6v9H4z"/><path d="M9.5 19v-5h5v5"/></symbol>
+    <symbol id="icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 10.5v6M12 7.5h.01"/></symbol>
+    <symbol id="icon-layers" viewBox="0 0 24 24"><path d="m4 8 8-4 8 4-8 4z"/><path d="m4 12 8 4 8-4M4 16l8 4 8-4"/></symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M5 7h14M5 12h14M5 17h14"/></symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24"><path d="m9 7 8 5-8 5z"/></symbol>
+    <symbol id="icon-text" viewBox="0 0 24 24"><path d="M5 6h14M12 6v12M8.5 18h7"/></symbol>
+    <symbol id="icon-video" viewBox="0 0 24 24"><rect x="3.5" y="6" width="12.5" height="12" rx="2"/><path d="m16 10 4.5-2.5v9L16 14"/></symbol>
+    <symbol id="icon-wave" viewBox="0 0 24 24"><path d="M4 12h2l1.5-5 3 10 2.5-8 2.5 6 1.5-3h3"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Multiverse home">
+        <span class="wordmark">multiverse</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#create">Product</a>
+        <a href="#modes">Loop</a>
+        <a href="#research">Evidence</a>
+        <a href="studio/index.html">Open Studio</a>
+      </nav>
+
+      <div class="tablet-menu">
+        <button class="menu-trigger" type="button" aria-expanded="false" aria-controls="tablet-panel">
+          <svg class="icon" aria-hidden="true"><use href="#icon-menu"></use></svg>
+          Menu
+        </button>
+        <nav class="tablet-panel" id="tablet-panel" aria-label="Tablet navigation">
+          <a href="#create">Product</a>
+          <a href="#modes">Loop</a>
+          <a href="#research">Evidence</a>
+          <a href="studio/index.html">Open Studio</a>
+        </nav>
+      </div>
+
+      <button class="header-guide" type="button" data-open-guide aria-label="Open product boundary">
+        <svg class="icon" aria-hidden="true"><use href="#icon-info"></use></svg>
+        <span>Product boundary</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="mobile-spotlight" aria-labelledby="mobile-title">
+      <div class="mobile-art">
+        <img src="public/media/soft-companion.jpg" alt="A soft blue face with two bright eyes on a pale field" width="960" height="1200">
+        <span class="mobile-art-label">Verified experience for AI agents</span>
+        <span class="mobile-mascot" aria-hidden="true"><img src="public/mascot/portrait.svg?v=6" alt=""></span>
+      </div>
+      <p class="eyebrow">Verified agent memory</p>
+      <h1 id="mobile-title">Make the next run better.</h1>
+      <p class="mobile-copy" id="mobile-mode-copy">Define a task with an outcome the system can actually check.</p>
+      <div class="mode-switch mode-switch-mobile" aria-label="Creation mode">
+        <button type="button" data-mode-control="outline" aria-pressed="true">Task</button>
+        <button type="button" data-mode-control="visual" aria-pressed="false">Memory</button>
+        <button type="button" data-mode-control="video" aria-pressed="false">Evaluate</button>
+      </div>
+      <div class="action-row">
+        <a class="button button-primary" href="studio/index.html">Open Studio</a>
+        <a class="button button-secondary" href="#research">See the evidence contract</a>
+      </div>
+    </section>
+
+    <section class="desktop-hero reveal" id="create" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Persistent agent execution</p>
+        <h1 id="hero-title">Agents should not start every task from zero.</h1>
+        <p class="hero-lede">Multiverse records verified experience, retrieves only what applies, and tests whether reuse improves the next task under the same budget.</p>
+        <div class="mode-switch hero-mode-switch" aria-label="Creation mode">
+          <button type="button" data-mode-control="outline" aria-pressed="true">Task</button>
+          <button type="button" data-mode-control="visual" aria-pressed="false">Memory</button>
+          <button type="button" data-mode-control="video" aria-pressed="false">Evaluate</button>
+        </div>
+        <div class="hero-state" aria-live="polite">
+          <span class="micro-label" id="mode-label">Task contract</span>
+          <h2 id="mode-title">Define what success means</h2>
+          <p id="mode-copy">Give the agent a bounded objective, permissions, budget, and acceptance checks.</p>
+        </div>
+        <div class="action-row">
+          <a class="button button-primary" href="studio/index.html">Open Studio</a>
+          <button class="button button-secondary" type="button" data-open-guide>
+            <svg class="icon" aria-hidden="true"><use href="#icon-info"></use></svg>
+            Product boundary
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-showcase" aria-label="Multiverse creation mode preview">
+        <div class="hero-media">
+          <img class="hero-image is-active" data-mode-image="outline" src="public/media/soft-companion.jpg" alt="A soft blue face with two bright eyes on a pale field" width="960" height="1200">
+          <img class="hero-image" data-mode-image="visual" src="public/media/mascot-field.jpg" alt="A small standing guide waving from a green hill under a peach and lavender sky" width="960" height="1200">
+          <img class="hero-image" data-mode-image="video" src="public/media/story-ribbons.jpg" alt="Lavender and peach paper forms unfolding in sequence" width="960" height="1200">
+          <div class="hero-media-top">
+            <span>Multiverse Core</span>
+            <span class="status-chip">Local evaluation wedge</span>
+          </div>
+          <div class="hero-media-bottom">
+            <span id="hero-media-label">01 / Define the task</span>
+            <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
+          </div>
+        </div>
+        <div class="mascot-note" data-mascot-state="outline">
+          <div class="mascot-note-art" aria-hidden="true">
+            <img class="mode-mascot is-active" data-mode-mascot="outline" src="public/mascot/welcome.svg?v=6" alt="">
+            <img class="mode-mascot" data-mode-mascot="visual" src="public/mascot/thinking.svg?v=6" alt="">
+            <img class="mode-mascot" data-mode-mascot="video" src="public/mascot/celebrate.svg?v=6" alt="">
+          </div>
+          <p><span class="mascot-note-label">Boundary</span><strong id="mascot-note-title">Start with a check.</strong><span id="mascot-note-copy">If success cannot be checked, require human review instead of inventing proof.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block reveal" id="modes" aria-labelledby="modes-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Execution loop</p>
+          <h2 id="modes-title">Move from a task to reusable evidence.</h2>
+        </div>
+        <p>Each stage preserves what happened, what passed, and what remains unproven.</p>
+        <div class="rail-controls" aria-label="Move through paths">
+          <button class="icon-button" type="button" data-rail="previous" aria-label="Previous paths">
+            <svg class="icon" aria-hidden="true"><use href="#icon-arrow-left"></use></svg>
+          </button>
+          <button class="icon-button" type="button" data-rail="next" aria-label="Next paths">
+            <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="rail-clip">
+        <div class="media-rail" data-media-rail>
+          <button class="media-card" type="button" data-card-mode="outline" data-tone="light">
+            <img src="public/media/painted-signal.jpg" alt="Abstract coral, moss, and blue painted landscape" width="960" height="1200">
+            <span class="media-shade"></span>
+            <span class="media-index">01 / Task</span>
+            <span class="media-action"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></span>
+            <span class="media-info">
+              <span class="media-figure" style="--pose: url('public/mascot/welcome.svg?v=8')" aria-hidden="true"><span class="media-glass-shape"></span><img src="public/mascot/welcome.svg?v=8" alt=""></span>
+              <span class="media-copy"><strong>Define</strong><span>Set the objective, budget, permissions, and acceptance checks.</span></span>
+            </span>
+          </button>
+          <button class="media-card" type="button" data-card-mode="video" data-tone="light">
+            <img src="public/media/story-ribbons.jpg" alt="Lavender and peach paper forms unfolding in sequence" width="960" height="1200" loading="lazy">
+            <span class="media-shade"></span>
+            <span class="media-index">02 / Execute</span>
+            <span class="media-action"><svg class="icon" aria-hidden="true"><use href="#icon-play"></use></svg></span>
+            <span class="media-info">
+              <span class="media-figure" style="--pose: url('public/mascot/point.svg?v=8')" aria-hidden="true"><span class="media-glass-shape"></span><img src="public/mascot/point.svg?v=8" alt=""></span>
+              <span class="media-copy"><strong>Run and record</strong><span>Capture attempts, tool results, costs, errors, and artifacts.</span></span>
+            </span>
+          </button>
+          <button class="media-card" type="button" data-card-mode="visual" data-tone="light">
+            <img src="public/media/mascot-field.jpg" alt="A small standing guide waving from a green hill under a peach and lavender sky" width="960" height="1200" loading="lazy">
+            <span class="media-shade"></span>
+            <span class="media-index">03 / Verify</span>
+            <span class="media-action"><svg class="icon" aria-hidden="true"><use href="#icon-wave"></use></svg></span>
+            <span class="media-info">
+              <span class="media-figure" style="--pose: url('public/mascot/thinking.svg?v=8')" aria-hidden="true"><span class="media-glass-shape"></span><img src="public/mascot/thinking.svg?v=8" alt=""></span>
+              <span class="media-copy"><strong>Verify</strong><span>Use visible and held-out checks before calling a result successful.</span></span>
+            </span>
+          </button>
+          <button class="media-card" type="button" data-card-mode="outline" data-tone="light">
+            <img src="public/media/sky-portal.jpg" alt="A sculptural doorway floating among soft blue clouds" width="960" height="1200" loading="lazy">
+            <span class="media-shade"></span>
+            <span class="media-index">04 / Memory</span>
+            <span class="media-action"><svg class="icon" aria-hidden="true"><use href="#icon-layers"></use></svg></span>
+            <span class="media-info">
+              <span class="media-figure" style="--pose: url('public/mascot/celebrate.svg?v=8')" aria-hidden="true"><span class="media-glass-shape"></span><img src="public/mascot/celebrate.svg?v=8" alt=""></span>
+              <span class="media-copy"><strong>Review memory</strong><span>Keep provenance, scope, evidence, and human approval attached.</span></span>
+            </span>
+          </button>
+          <button class="media-card mascot-card" type="button" data-card-mode="visual" data-tone="light">
+            <span class="mascot-card-field" style="--pose: url('public/mascot/neutral.svg?v=8')" aria-hidden="true"><span class="media-glass-shape"></span><img src="public/mascot/neutral.svg?v=8" alt=""></span>
+            <span class="media-index">05 / Studio</span>
+            <span class="media-action"><svg class="icon" aria-hidden="true"><use href="#icon-info"></use></svg></span>
+            <span class="media-copy"><strong>Inspect the evidence</strong><span>Review runs, traces, memory decisions, and evaluation jobs.</span></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block guide-section reveal" id="guide" aria-labelledby="guide-title">
+      <div class="section-heading section-heading-simple">
+        <div>
+          <p class="eyebrow">Review guide</p>
+          <h2 id="guide-title">Keep proof separate from persuasion.</h2>
+        </div>
+        <p>Three questions keep a run bounded, inspectable, and honest about what it proved.</p>
+      </div>
+
+      <div class="guide-layout">
+        <article class="mascot-guide surface-card">
+          <div class="guide-visual" data-guide-state="welcome" aria-hidden="true">
+            <span class="guide-number">01</span>
+            <span class="guide-role" id="guide-role">Welcome</span>
+            <img class="guide-pose is-active" data-guide-pose="0" src="public/mascot/welcome.svg?v=6" alt="">
+            <img class="guide-pose" data-guide-pose="1" src="public/mascot/point.svg?v=6" alt="">
+            <img class="guide-pose" data-guide-pose="2" src="public/mascot/celebrate.svg?v=6" alt="">
+          </div>
+          <div class="guide-body" aria-live="polite">
+            <div class="guide-progress"><span class="micro-label">Guide</span><span id="guide-count">01 / 03</span></div>
+            <h3 id="guide-step-title">Name the outcome</h3>
+            <p id="guide-step-copy">State the repository change and the objective checks that determine success.</p>
+            <div class="guide-actions">
+              <button class="icon-button" type="button" id="guide-previous" aria-label="Previous guide step" disabled>
+                <svg class="icon" aria-hidden="true"><use href="#icon-arrow-left"></use></svg>
+              </button>
+              <button class="button button-primary" type="button" id="guide-next">Next prompt</button>
+            </div>
+          </div>
+        </article>
+
+        <div class="capability-shell">
+          <div class="capability-grid">
+            <article class="capability-card surface-card" data-layout="adaptive">
+              <span class="capability-icon"><svg class="icon" aria-hidden="true"><use href="#icon-text"></use></svg></span>
+              <div><h3>Task contract</h3><p>Objective, fixtures, permissions, budget, and acceptance checks.</p></div>
+              <span class="capability-state">Required</span>
+            </article>
+            <article class="capability-card surface-card" data-layout="adaptive">
+              <span class="capability-icon"><svg class="icon" aria-hidden="true"><use href="#icon-wave"></use></svg></span>
+              <div><h3>Evidence trace</h3><p>Attempts, verification output, timing, token use, and memory provenance.</p></div>
+              <span class="capability-state">Append-only</span>
+            </article>
+            <article class="capability-card surface-card" data-layout="adaptive">
+              <span class="capability-icon"><svg class="icon" aria-hidden="true"><use href="#icon-layers"></use></svg></span>
+              <div><h3>Memory gate</h3><p>Candidate knowledge remains unavailable until independently verified and reviewed.</p></div>
+              <span class="capability-state">Manual approval</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block system-section reveal" aria-labelledby="system-title">
+      <div class="system-copy">
+        <p class="eyebrow">Product rules</p>
+        <h2 id="system-title">Every claim needs an evidence path.</h2>
+        <p>Multiverse distinguishes stored experience, reusable procedures, and demonstrated capability so the interface never turns activity into proof.</p>
+      </div>
+      <div class="system-grid">
+        <article><span>Memory ≠ learning</span><strong>Reuse</strong><p>A stored lesson matters only when it improves a later verified task.</p></article>
+        <article><span>Agreement ≠ truth</span><strong>Verification</strong><p>Tests and external evidence outrank model confidence or consensus.</p></article>
+        <article><span>Skill ≠ capability</span><strong>Evaluation</strong><p>A procedure earns trust through held-out results under a declared configuration.</p></article>
+      </div>
+    </section>
+
+    <section class="section-block research-section reveal" id="research" aria-labelledby="research-title">
+      <div class="section-heading section-heading-simple">
+        <div>
+          <p class="eyebrow">Evidence contract</p>
+          <h2 id="research-title">Test transfer under the same constraints.</h2>
+        </div>
+        <p>The current Core is a local synthetic harness. It tests the loop, not general agent capability.</p>
+      </div>
+
+      <div class="research-grid">
+        <article class="research-record surface-card">
+          <div class="research-header">
+            <div class="research-tag-row">
+              <span class="micro-label">Local harness &middot; Repository fixtures</span>
+              <span class="status-chip">Synthetic evidence</span>
+            </div>
+            <h3 class="research-headline">Does selective verified memory improve held-out repository tasks?</h3>
+            <p class="research-authors">Multiverse Core evaluation contract &middot; <span class="mono-meta">version 0.2.0</span></p>
+
+            <div class="mode-switch research-tab-switch" aria-label="Paper views">
+              <button type="button" data-research-tab="abstract" aria-pressed="true">Method</button>
+              <button type="button" data-research-tab="grounding" aria-pressed="false">Controls</button>
+              <button type="button" data-research-tab="benchmarks" aria-pressed="false">Limits</button>
+            </div>
+          </div>
+
+          <div class="research-pane is-active" data-research-pane="abstract">
+            <p class="research-abstract-text">
+              Run a stateless baseline and a verified-memory treatment on held-out bug-fix fixtures. Hold the task set, agent, attempt budget, verifier, and retrieval limit constant. Record successes, regressions, negative transfer, elapsed time, token estimates, and every memory used.
+            </p>
+            <div class="research-metrics-row">
+              <div class="research-metric">
+                <span class="metric-val">21</span>
+                <span class="metric-lbl">Bundled fixtures</span>
+              </div>
+              <div class="research-metric">
+                <span class="metric-val">2</span>
+                <span class="metric-lbl">Separated splits</span>
+              </div>
+              <div class="research-metric">
+                <span class="metric-val">1</span>
+                <span class="metric-lbl">Manual promotion gate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="research-pane" data-research-pane="grounding" hidden>
+            <p class="research-body-text">
+              A run counts as verified only when both visible checks and verifier-only held-out checks pass:
+            </p>
+            <div class="math-card">
+              <div class="math-expr"><span class="math-term">visible checks pass</span><span class="math-operator">and</span><span class="math-term">held-out checks pass</span><span class="math-operator">means</span><span class="math-term">the run is verified</span></div>
+              <span class="math-tag">(1)</span>
+            </div>
+            <p class="research-sub-note">Corpus digests, deterministic arm order, matched attempt budgets, and append-only trace events make the local comparison auditable.</p>
+          </div>
+
+          <div class="research-pane" data-research-pane="benchmarks" hidden>
+            <div class="benchmark-list">
+              <div class="benchmark-item">
+                <div class="benchmark-info">
+                  <strong>Real repository execution</strong>
+                  <span>Requires disposable container isolation</span>
+                </div>
+                <span class="benchmark-rate">Not built</span>
+              </div>
+              <div class="benchmark-item">
+                <div class="benchmark-info">
+                  <strong>Production authorization</strong>
+                  <span>Tenant and object-level policy</span>
+                </div>
+                <span class="benchmark-rate">Not built</span>
+              </div>
+              <div class="benchmark-item">
+                <div class="benchmark-info">
+                  <strong>Customer validation</strong>
+                  <span>Recurring workflow and buyer evidence</span>
+                </div>
+                <span class="benchmark-rate">Unproven</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section-block closing reveal" aria-labelledby="closing-title">
+      <div class="closing-media">
+        <img src="public/media/green-orbit.jpg" alt="Mint orbit forms moving through a deep green painted field" width="960" height="1200" loading="lazy">
+      </div>
+      <div class="closing-copy">
+        <p class="eyebrow">Start with the evidence</p>
+        <h2 id="closing-title">Inspect the loop before expanding the platform.</h2>
+        <p>Studio exposes measured runs, queued evaluations, and reviewable memory while keeping synthetic behavior clearly labeled.</p>
+        <a class="button button-primary" href="studio/index.html">Open Studio</a>
+      </div>
+    </section>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-inner">
+        <div class="footer-brand-col">
+          <span class="wordmark">multiverse</span>
+          <p class="footer-tagline">Verified experience for bounded AI-agent tasks.</p>
+          <span class="footer-meta">Core 0.2.0 &middot; Local evaluation wedge</span>
+        </div>
+        <div class="footer-links-col">
+          <span class="footer-heading">Studio</span>
+          <a href="studio/index.html">Open Studio</a>
+          <a href="#modes">Execution loop</a>
+          <a href="#research">Evidence contract</a>
+          <a href="#guide">Review guide</a>
+        </div>
+        <div class="footer-links-col">
+          <span class="footer-heading">System</span>
+          <a href="#interface-guide" data-open-guide>Product boundary</a>
+          <a href="#top">Return to Top</a>
+          <span class="footer-status">Local prototype</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; Multiverse Universe. No product analytics are installed in this prototype.</p>
+      </div>
+    </footer>
+  </main>
+
+  <nav class="mobile-tabs" aria-label="Phone navigation">
+    <a href="#top" aria-current="page"><svg class="icon" aria-hidden="true"><use href="#icon-home"></use></svg><span>Home</span></a>
+    <a href="#modes"><svg class="icon" aria-hidden="true"><use href="#icon-grid"></use></svg><span>Loop</span></a>
+    <a href="studio/index.html"><svg class="icon" aria-hidden="true"><use href="#icon-layers"></use></svg><span>Studio</span></a>
+    <button type="button" data-open-guide><svg class="icon" aria-hidden="true"><use href="#icon-info"></use></svg><span>About</span></button>
+  </nav>
+
+  <dialog id="interface-guide" aria-labelledby="dialog-title">
+    <div class="dialog-head">
+      <div><p class="micro-label">Product boundary</p><h2 id="dialog-title">What this prototype proves</h2></div>
+      <button class="icon-button" type="button" data-close-guide aria-label="Close product boundary">
+        <svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg>
+      </button>
+    </div>
+    <ul class="dialog-list">
+      <li><span>Type</span><strong>Local IBM Plex Sans and Mono</strong></li>
+      <li><span>Theme</span><strong>Pure white canvas and surfaces with small pastel accents</strong></li>
+      <li><span>Scale</span><strong>Bounded fluid type on an 8px spatial rhythm</strong></li>
+      <li><span>Cards</span><strong>Compact information cards and controlled artwork cards</strong></li>
+      <li><span>Motion</span><strong>Fast state changes, no autonomous loops</strong></li>
+      <li><span>Structure</span><strong>Readable measures with 16px, 24px, and 32px gutters</strong></li>
+      <li><span>Core</span><strong>Runs bundled fixtures with a deterministic synthetic agent</strong></li>
+      <li><span>Evidence</span><strong>Stored traces and memory are not capability claims</strong></li>
+      <li><span>Boundary</span><strong>Real repositories, production isolation, and customer demand remain unproven</strong></li>
+    </ul>
+    <form method="dialog"><button class="button button-primary" value="close">Done</button></form>
+  </dialog>
+
+  <script>
+    const modeDetails = {
+      outline: {
+        label: "Task contract",
+        title: "Define what success means",
+        copy: "Give the agent a bounded objective, permissions, budget, and acceptance checks.",
+        media: "01 / Define the task",
+        mascotTitle: "Start with a check.",
+        mascotCopy: "If success cannot be checked, require human review instead of inventing proof."
+      },
+      visual: {
+        label: "Memory contract",
+        title: "Reuse only verified experience",
+        copy: "Retrieve scoped lessons with provenance, evidence, applicability, and expiry.",
+        media: "02 / Review the memory",
+        mascotTitle: "Keep the source attached.",
+        mascotCopy: "A useful note is still only a candidate until it succeeds again."
+      },
+      video: {
+        label: "Evaluation contract",
+        title: "Compare under equal budgets",
+        copy: "Measure held-out success, regressions, negative transfer, time, tokens, and cost.",
+        media: "03 / Evaluate the transfer",
+        mascotTitle: "Let the result decide.",
+        mascotCopy: "Agreement and confidence never replace objective verification."
+      }
+    };
+
+    const guideSteps = [
+      ["Name the outcome", "State the repository change and the objective checks that determine success.", "Task", "welcome"],
+      ["Set the boundary", "Declare tools, network, secrets, time, tokens, retries, and approval requirements.", "Permissions", "point"],
+      ["Review the evidence", "Inspect the verifier output, regressions, costs, and memory provenance before reuse.", "Evidence", "celebrate"]
+    ];
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const mediaRail = document.querySelector("[data-media-rail]");
+    const railControls = [...document.querySelectorAll("[data-rail]")];
+    const guideDialog = document.querySelector("#interface-guide");
+    const menu = document.querySelector(".tablet-menu");
+    const menuTrigger = document.querySelector(".menu-trigger");
+    let guideStep = 0;
+    let lastGuideTrigger = null;
+
+    function updateRailControls() {
+      if (!mediaRail) return;
+
+      const maximumScroll = Math.max(0, mediaRail.scrollWidth - mediaRail.clientWidth);
+      const atStart = mediaRail.scrollLeft <= 2;
+      const atEnd = mediaRail.scrollLeft >= maximumScroll - 2;
+
+      railControls.forEach((button) => {
+        button.disabled = button.dataset.rail === "previous" ? atStart : atEnd;
+      });
+    }
+
+    function selectMode(mode) {
+      const details = modeDetails[mode];
+      if (!details) return;
+
+      document.querySelectorAll("[data-mode-control]").forEach((button) => {
+        button.setAttribute("aria-pressed", button.dataset.modeControl === mode ? "true" : "false");
+      });
+      document.querySelectorAll("[data-mode-image]").forEach((image) => {
+        image.classList.toggle("is-active", image.dataset.modeImage === mode);
+      });
+      document.querySelectorAll("[data-mode-mascot]").forEach((image) => {
+        image.classList.toggle("is-active", image.dataset.modeMascot === mode);
+      });
+
+      document.querySelector("#mode-label").textContent = details.label;
+      document.querySelector("#mode-title").textContent = details.title;
+      document.querySelector("#mode-copy").textContent = details.copy;
+      document.querySelector("#mobile-mode-copy").textContent = details.copy;
+      document.querySelector("#hero-media-label").textContent = details.media;
+      document.querySelector("#mascot-note-title").textContent = details.mascotTitle;
+      document.querySelector("#mascot-note-copy").textContent = details.mascotCopy;
+      document.querySelector(".mascot-note").dataset.mascotState = mode;
+    }
+
+    function updateGuide() {
+      const [title, copy, role, state] = guideSteps[guideStep];
+      document.querySelector("#guide-step-title").textContent = title;
+      document.querySelector("#guide-step-copy").textContent = copy;
+      document.querySelector("#guide-role").textContent = role;
+      document.querySelector(".guide-visual").dataset.guideState = state;
+      document.querySelector("#guide-count").textContent = `${String(guideStep + 1).padStart(2, "0")} / 03`;
+      document.querySelector(".guide-number").textContent = String(guideStep + 1).padStart(2, "0");
+      document.querySelector("#guide-previous").disabled = guideStep === 0;
+      const nextButton = document.querySelector("#guide-next");
+      nextButton.textContent = guideStep === guideSteps.length - 1 ? "Start again" : "Next prompt";
+      document.querySelectorAll("[data-guide-pose]").forEach((pose) => {
+        pose.classList.toggle("is-active", Number(pose.dataset.guidePose) === guideStep);
+      });
+    }
+
+    document.querySelectorAll("[data-mode-control]").forEach((button) => {
+      button.addEventListener("click", () => selectMode(button.dataset.modeControl));
+    });
+
+    document.querySelectorAll("[data-card-mode]").forEach((card) => {
+      card.addEventListener("click", () => {
+        selectMode(card.dataset.cardMode);
+        const target = window.innerWidth < 768 ? document.querySelector("#top") : document.querySelector("#create");
+        target.scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth" });
+      });
+    });
+
+    railControls.forEach((button) => {
+      button.addEventListener("click", () => {
+        const direction = button.dataset.rail === "next" ? 1 : -1;
+        mediaRail.scrollBy({ left: mediaRail.clientWidth * 0.72 * direction, behavior: reducedMotion.matches ? "auto" : "smooth" });
+      });
+    });
+
+    mediaRail?.addEventListener("scroll", updateRailControls, { passive: true });
+    window.addEventListener("resize", updateRailControls);
+    window.addEventListener("load", updateRailControls, { once: true });
+    if (mediaRail && "ResizeObserver" in window) {
+      new ResizeObserver(updateRailControls).observe(mediaRail);
+    }
+    requestAnimationFrame(updateRailControls);
+
+    document.querySelector("#guide-previous").addEventListener("click", () => {
+      guideStep = Math.max(0, guideStep - 1);
+      updateGuide();
+    });
+
+    document.querySelector("#guide-next").addEventListener("click", () => {
+      guideStep = guideStep === guideSteps.length - 1 ? 0 : guideStep + 1;
+      updateGuide();
+    });
+
+    document.querySelectorAll("[data-open-guide]").forEach((button) => {
+      button.addEventListener("click", () => {
+        lastGuideTrigger = button;
+        guideDialog.showModal();
+      });
+    });
+
+    document.querySelector("[data-close-guide]").addEventListener("click", () => guideDialog.close());
+    guideDialog.addEventListener("close", () => lastGuideTrigger?.focus());
+    guideDialog.addEventListener("click", (event) => {
+      if (event.target === guideDialog) guideDialog.close();
+    });
+
+    menuTrigger?.addEventListener("click", () => {
+      const isOpen = menu.classList.toggle("is-open");
+      menuTrigger.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    document.querySelectorAll(".tablet-panel a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menu.classList.remove("is-open");
+        menuTrigger.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    const revealItems = document.querySelectorAll(".reveal");
+    if (reducedMotion.matches || !("IntersectionObserver" in window)) {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    } else {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      revealItems.forEach((item) => observer.observe(item));
+    }
+
+    document.querySelectorAll("[data-research-tab]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = button.dataset.researchTab;
+        document.querySelectorAll("[data-research-tab]").forEach((btn) => {
+          btn.setAttribute("aria-pressed", btn.dataset.researchTab === target ? "true" : "false");
+        });
+        document.querySelectorAll("[data-research-pane]").forEach((pane) => {
+          const isActive = pane.dataset.researchPane === target;
+          pane.classList.toggle("is-active", isActive);
+          pane.hidden = !isActive;
+        });
+      });
+    });
+
+  </script>
+</body>
+</html>

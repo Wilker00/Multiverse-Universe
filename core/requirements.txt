@@ -1,0 +1,6 @@
+# Core itself needs only the Python standard library (3.10+).
+# The API and live Studio view need:
+fastapi
+uvicorn
+# Only for running the API tests:
+httpx

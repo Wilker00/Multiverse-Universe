@@ -1,0 +1,9 @@
+{
+ "id": "is_passing",
+ "family": "threshold",
+ "tags": [
+  "threshold",
+  "compare"
+ ],
+ "split": "train"
+}

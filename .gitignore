@@ -1,0 +1,16 @@
+__pycache__/
+.venv/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+dist/
+build/
+node_modules/
+*.db
+.env
+.env.*
+!.env.example
+.multiverse-work/
+**/_hidden/
+*.tsbuildinfo

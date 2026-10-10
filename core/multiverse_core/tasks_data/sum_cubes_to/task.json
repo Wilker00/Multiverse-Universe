@@ -1,0 +1,9 @@
+{
+ "id": "sum_cubes_to",
+ "family": "inclusive-bound",
+ "tags": [
+  "inclusive-bound",
+  "bounds"
+ ],
+ "split": "eval"
+}

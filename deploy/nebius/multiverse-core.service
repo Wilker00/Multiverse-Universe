@@ -1,0 +1,22 @@
+[Unit]
+Description=Multiverse Core
+After=network-online.target openshell-gateway.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=multiverse
+Group=multiverse
+WorkingDirectory=/opt/multiverse/core
+EnvironmentFile=/etc/multiverse/multiverse.env
+ExecStart=/opt/multiverse/venv/bin/python -m multiverse_core serve --host 127.0.0.1 --port 8000
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/multiverse
+
+[Install]
+WantedBy=multi-user.target

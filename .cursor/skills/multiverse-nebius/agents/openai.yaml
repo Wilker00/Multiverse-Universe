@@ -1,0 +1,4 @@
+interface:
+  display_name: "Multiverse Nebius"
+  short_description: "Build and validate the bounded Nebius/NVIDIA coding-agent stack."
+  default_prompt: "Use the Multiverse Nebius workflow to implement or validate the bounded coding-agent integration."

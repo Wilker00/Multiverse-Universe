@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Multiverse Studio (live)</title>
+<style>
+:root{--fg:#0c0c0c;--mut:#6f7480;--line:#ececee;--soft:#f6f6f7}*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--fg);font:15px/1.55 Inter,system-ui,sans-serif}.w{max-width:960px;margin:0 auto;padding:24px 20px 60px}
+h1{font-weight:300;font-size:34px;letter-spacing:-.03em;margin:8px 0 2px}h2{font-size:15px;font-weight:500;margin:30px 0 8px}p{color:var(--mut);margin:0 0 12px}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}button{border:1px solid #d9dce3;background:#fff;border-radius:999px;padding:7px 14px;font:inherit;font-size:13.5px;cursor:pointer}button.on{background:#0c0c0c;color:#fff;border-color:#0c0c0c}button:disabled{opacity:.4}
+table{width:100%;border-collapse:collapse;font-size:13.5px}th{text-align:left;color:var(--mut);font-weight:500;font-size:12px;padding:6px 8px;border-bottom:1px solid var(--line)}td{padding:8px;border-bottom:1px solid var(--line);vertical-align:top}
+.s{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:1px 10px;font-size:12px}.promoted,.pass{background:#ecfdf3;border-color:#a6e3bf;color:#067647}.verified{background:#eef3ff;border-color:#b7caff;color:#2b4fd8}.rejected,.fail,.demoted{background:#fff1f0;border-color:#f5b5b0;color:#b42318}
+.note{border:1px solid #f5d28a;background:#fff7e6;color:#8a5200;border-radius:12px;padding:10px 14px;margin:8px 0;font-size:13.5px}code{font:12.5px ui-monospace,Menlo,monospace}
+.k{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}.k div{border:1px solid var(--line);border-radius:14px;padding:12px 14px}.k b{display:block;font-size:26px;font-weight:300}
+</style></head><body><div class="w">
+<h1>Multiverse Studio</h1><p>Live view of Core. Everything below comes from the API, not a script.</p>
+<div class="row"><button id="learn">1. Learn from training tasks</button><button id="eval">2. Run held-out evaluation</button><button id="exp" class="on">Run the full experiment</button></div>
+<div id="notes"></div>
+<h2>Held-out evaluation</h2><div id="rep"><p>No evaluation yet.</p></div>
+<h2>Memory DNA</h2><p>Lessons are verified on independent tasks before they can be promoted. Verified lessons wait here for your approval.</p><div id="mem"></div>
+<h2>Runs</h2><div id="runs"></div>
+</div><script>
+const $=s=>document.querySelector(s),api=async(p,m)=>{const r=await fetch('/api'+p,{method:m||'GET'});if(!r.ok)throw new Error((await r.json()).detail||r.status);return r.json()};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const busy=async(f)=>{document.querySelectorAll('button').forEach(b=>b.disabled=true);try{await f()}catch(e){$('#notes').innerHTML='<div class="note">'+esc(e.message)+'</div>'}document.querySelectorAll('button').forEach(b=>b.disabled=false);load()};
+async function load(){const[m,r,rp]=await Promise.all([api('/memory'),api('/runs'),api('/eval/latest')]);
+$('#mem').innerHTML=m.length?'<table><tr><th>Lesson</th><th>Status</th><th>Evidence</th><th></th></tr>'+m.map(x=>`<tr><td>${esc(x.text)}<br><code>${esc(x.id)} · from ${esc(x.source_task)}</code></td><td><span class="s ${x.status}">${x.status}</span></td><td>${x.evidence.validation_tasks?x.evidence.gains+' gained, '+x.evidence.regressions+' broken on '+x.evidence.validation_tasks.length+' independent task(s)':'none yet'}</td><td>${x.status==='verified'?`<button data-a="${x.id}">Approve</button>`:''}${x.status==='promoted'?`<button data-r="${x.id}">Demote</button>`:''}</td></tr>`).join('')+'</table>':'<p>Nothing yet. Learn from training tasks first.</p>';
+$('#runs').innerHTML=r.length?'<table><tr><th>Task</th><th>Arm</th><th>Verified</th><th>Attempts</th><th>Tokens in/out</th></tr>'+r.filter(x=>!x.arm.startsWith('validate')).slice(-30).reverse().map(x=>`<tr><td>${esc(x.task_id)}</td><td>${esc(x.arm)}</td><td><span class="s ${x.verified?'pass':'fail'}">${x.verified?'yes':'no'}</span></td><td>${x.attempts}/${x.budget}</td><td>${x.tokens_in}/${x.tokens_out}</td></tr>`).join('')+'</table>':'<p>No runs yet.</p>';
+if(rp){const f=v=>v==null?'n/a':'$'+v.toFixed(5);$('#rep').innerHTML=`<div class="k"><div><b>${rp.baseline.passed}/${rp.n_eval}</b>baseline verified</div><div><b>${rp.treatment.passed}/${rp.n_eval}</b>treatment verified</div><div><b>${f(rp.baseline.cost_per_verified)}</b>baseline cost per verified</div><div><b>${f(rp.treatment.cost_per_verified)}</b>treatment cost per verified</div></div><p style="margin-top:10px">Paired: both ${rp.paired.both}, only treatment ${rp.paired.only_treatment}, only baseline ${rp.paired.only_baseline}. Sign test p = ${rp.sign_test_p.toFixed(3)}.</p>`+rp.notes.map(n=>`<div class="note">${esc(n)}</div>`).join('')+(rp.regressions.length?'<table><tr><th>Regression</th><th>Retrieved</th></tr>'+rp.regressions.map(x=>`<tr><td>${esc(x.task)} (${esc(x.family)})</td><td>${esc(x.ops.join(', '))}</td></tr>`).join('')+'</table>':'')}
+document.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>busy(()=>api('/memory/'+b.dataset.a+'/approve','POST')));
+document.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>busy(()=>api('/memory/'+b.dataset.r+'/reject','POST')))}
+$('#learn').onclick=()=>busy(()=>api('/learn','POST'));$('#eval').onclick=()=>busy(()=>api('/eval','POST'));$('#exp').onclick=()=>busy(()=>api('/experiment','POST'));load();
+</script></body></html>

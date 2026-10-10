@@ -1,0 +1,9 @@
+{
+ "id": "has_free_shipping",
+ "family": "threshold",
+ "tags": [
+  "threshold",
+  "compare"
+ ],
+ "split": "eval"
+}

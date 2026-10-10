@@ -1,0 +1,9 @@
+{
+ "id": "count_squares_to",
+ "family": "inclusive-bound",
+ "tags": [
+  "inclusive-bound",
+  "bounds"
+ ],
+ "split": "eval"
+}

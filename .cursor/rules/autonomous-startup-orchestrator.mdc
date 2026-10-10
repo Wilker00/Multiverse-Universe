@@ -1,0 +1,24 @@
+---
+description: Audits Multiverse changes against its product hypothesis, evidence requirements, safety boundaries, product scope, interface rules, and release gates.
+globs: ["*"]
+alwaysApply: true
+---
+
+# Autonomous Startup Orchestrator
+
+Treat Multiverse as a persistent LLM-agent execution and learning platform. The static page is a Studio visual prototype, not a working agent system.
+
+Before consequential work, consult the relevant local skills:
+
+1. `.cursor/skills/multiverse-agent-research/SKILL.md` for memory, skills, capabilities, Verses, orchestration, verification, and evaluation.
+2. `.cursor/skills/customer-data-intelligence/SKILL.md` for customer evidence, workflow value, cost, trust, and market risk.
+3. `.cursor/skills/founder-office-hours/SKILL.md` and `.cursor/skills/plan-ceo-review/SKILL.md` for wedge and scope reduction.
+4. `.cursor/skills/multiverse-ui/SKILL.md` for calm, evidence-first Studio design.
+5. `.cursor/skills/building-data-apps/SKILL.md` for implementation architecture.
+6. `.cursor/skills/qa-accessibility-reviewer/SKILL.md` and `.cursor/skills/ship-release-manager/SKILL.md` for verification and synchronized delivery.
+
+Also use the shared `backend-architecture`, `information-architecture`, `product-analytics`, and `seo-content` skills when their domains apply. SEO applies only to public pages; private Studio routes stay out of search.
+
+Provide a short Founder Pre-Flight naming the capability hypothesis, smallest baseline and treatment, objective checks, budgets, permissions, privacy, rollback, and next build step.
+
+Do not claim that memory, agent agreement, or repeated prompting proves learning. Require held-out results under comparable resource constraints.
