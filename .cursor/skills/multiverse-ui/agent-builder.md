@@ -5,7 +5,9 @@ Use these rules when creating or editing the personal-agent setup workspace.
 ## Primary Task
 
 - Help one person define an agent and organize the information it may carry forward.
-- Keep the sequence explicit: define the agent, add knowledge or experience, review the foundation, then save a draft.
+- Keep setup on one page as four compact steps: About, Knowledge, Memory, and Context.
+- Present the steps as one ruled ledger. Do not create a long form, a wizard with separate routes, or large setup cards.
+- The About step asks only for a name and one clear purpose in the first version.
 - Do not imply that adding text creates capability, learning, verification, or a running agent.
 
 ## Information Types
@@ -17,14 +19,18 @@ Use these rules when creating or editing the personal-agent setup workspace.
 
 ## Add Interaction
 
-- Use one clear `Add knowledge` action and compact plus controls for each information type.
-- The plus symbol is a monochrome stroke icon with a 44px touch target, not a floating action bubble or colored icon tile.
-- The add sheet asks for type, title, content, and source. It never invents evidence or silently promotes an entry.
+- Make the entire compact step row actionable and end it with a plus icon.
+- The plus symbol is a monochrome stroke icon, not a floating action bubble or colored icon tile.
+- Open one small focused editor no wider than 430px on desktop and no taller than 72% of the phone viewport.
+- The selected row determines the entry type. Do not ask the person to select that type again.
+- Ask for a title, one short detail, and an optional source. Avoid long text areas and multi-section dialogs.
+- The editor never invents evidence or silently promotes an entry.
 - Return focus to the initiating control when the dialog closes.
 
 ## Records and Empty States
 
-- Present entries as ruled rows inside one ledger, not as a dashboard of independent cards.
+- Present entries as short previews inside the four-step ledger, not as a dashboard of independent cards.
+- Truncate previews rather than allowing one record to make the setup page tall.
 - Label mock records as `Example`; do not present them as user data or server state.
 - Empty states explain the missing information and provide one direct add action.
 - Removal must be explicit. Connected products should add confirmation and provenance-aware deletion before destructive persistence.

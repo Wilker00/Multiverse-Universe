@@ -36,6 +36,8 @@ Start with `python .cursor/skills/multiverse-ui/scripts/validate_ui.py .`.
 - Standard utility icons sit on one neutral light-gray field; pastel icon tiles are not allowed.
 - The page has one clear primary task and no reference-demo filler.
 - Agent builders keep knowledge, reviewed memory, and current context visibly separate rather than merging them into one prompt field.
+- Agent setup stays on one page as compact ruled steps; it does not become a long form, oversized card grid, or multi-route wizard.
+- Agent add editors stay at or below 430px on desktop and 72vh on phone, with no redundant type selector.
 - Agent-builder mock records are labeled as examples, and browser-local saves state that no runtime is connected.
 - Add-entry dialogs collect a source and return focus to the control that opened them.
 - No randomized decorative dots, floating geometry, generic readiness labels, or self-referential design-system copy appears in the product UI.
