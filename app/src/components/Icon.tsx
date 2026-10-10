@@ -1,5 +1,5 @@
 interface IconProps {
-  name: 'arrow' | 'arrowLeft' | 'check' | 'close' | 'document' | 'grid' | 'history' | 'home' | 'info' | 'layers' | 'memory' | 'menu' | 'path' | 'search' | 'settings' | 'test'
+  name: 'arrow' | 'arrowLeft' | 'check' | 'close' | 'document' | 'grid' | 'history' | 'home' | 'info' | 'layers' | 'memory' | 'menu' | 'path' | 'plus' | 'search' | 'settings' | 'test'
   size?: number
 }
 
@@ -17,6 +17,7 @@ const paths: Record<IconProps['name'], React.ReactNode> = {
   memory: <><rect x="5" y="5" width="14" height="14" rx="3" /><path d="M9 2.5v3M15 2.5v3M9 18.5v3M15 18.5v3M2.5 9h3M18.5 9h3M2.5 15h3M18.5 15h3M9 10h6M9 14h4" /></>,
   menu: <path d="M5 7h14M5 12h14M5 17h14" />,
   path: <><circle cx="6" cy="6" r="2" /><circle cx="18" cy="18" r="2" /><path d="M8 6h3a3 3 0 0 1 3 3v6a3 3 0 0 0 3 3" /></>,
+  plus: <path d="M12 5v14M5 12h14" />,
   search: <><circle cx="10.5" cy="10.5" r="6" /><path d="m15 15 5 5" /></>,
   settings: <><circle cx="12" cy="12" r="3" /><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4" /></>,
   test: <><path d="M9 3h6M10 3v5l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3" /><path d="M8 15h8" /></>

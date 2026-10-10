@@ -5,6 +5,7 @@ import { coreApi } from './lib/api'
 import { matchPath, usePathname } from './lib/router'
 import { EvaluationDetailPage } from './pages/EvaluationDetailPage'
 import { EvaluationsPage } from './pages/EvaluationsPage'
+import { AgentBuilderPage } from './pages/AgentBuilderPage'
 import { MemoryDetailPage } from './pages/MemoryDetailPage'
 import { MemoryPage } from './pages/MemoryPage'
 import { LandingPage } from './pages/LandingPage'
@@ -39,6 +40,7 @@ function StudioRoute({ pathname }: { pathname: string }) {
   const verse = matchPath(pathname, '/verses/:verseId')
   if (verse) return <VersePage verseId={verse.verseId} />
 
+  if (pathname === '/agents/new') return <AgentBuilderPage />
   if (pathname === '/tasks/new') return <TaskComposerPage />
   if (pathname === '/runs') return <RunsPage />
   if (pathname === '/evaluations') return <EvaluationsPage />

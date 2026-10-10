@@ -35,6 +35,9 @@ Start with `python .cursor/skills/multiverse-ui/scripts/validate_ui.py .`.
 - All icons use a consistent monochrome stroke system.
 - Standard utility icons sit on one neutral light-gray field; pastel icon tiles are not allowed.
 - The page has one clear primary task and no reference-demo filler.
+- Agent builders keep knowledge, reviewed memory, and current context visibly separate rather than merging them into one prompt field.
+- Agent-builder mock records are labeled as examples, and browser-local saves state that no runtime is connected.
+- Add-entry dialogs collect a source and return focus to the control that opened them.
 - No randomized decorative dots, floating geometry, generic readiness labels, or self-referential design-system copy appears in the product UI.
 - Every visible section maps to a product task or content need rather than demonstrating the design system.
 - Standard information cards use compact horizontal internals and do not stretch beyond their content role.

@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { Icon } from '../components/Icon'
+import { Link } from '../components/Link'
 import { usePageMeta } from '../lib/pageMeta'
 import { coreApi } from '../lib/api'
 
@@ -46,7 +47,10 @@ export function LandingPage() {
           <label className="signup-trap" aria-hidden="true">Website<input tabIndex={-1} autoComplete="off" value={website} onChange={event => setWebsite(event.target.value)} /></label>
           <p className={`signup-message is-${state}`} role="status" aria-live="polite">{message}</p>
         </form>
-        <a className="signup-github" href={githubUrl} target="_blank" rel="noreferrer">Check GitHub <Icon name="arrow" size={15} /></a>
+        <div className="signup-links">
+          <Link className="button secondary" to="/agents/new">Open agent builder <Icon name="arrow" size={15} /></Link>
+          <a className="signup-github" href={githubUrl} target="_blank" rel="noreferrer">Check GitHub <Icon name="arrow" size={15} /></a>
+        </div>
       </div>
     </main>
   </div>

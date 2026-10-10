@@ -16,6 +16,7 @@ Use this skill as the source of truth for Multiverse Universe interfaces. Read t
 - Research-backed layout scale, whitespace, and structure: [scale-and-space.md](scale-and-space.md)
 - Research records, evidence language, metrics, and technical typography: [research-and-technical.md](research-and-technical.md)
 - Task, run, memory, evaluation, and prototype-state workspaces: [agent-studio.md](agent-studio.md)
+- Personal-agent setup, knowledge, memory, and context workspaces: [agent-builder.md](agent-builder.md)
 - Imported Shadcn card-composition guidance adapted to this system: [imports/shadcn-card-composition.md](imports/shadcn-card-composition.md)
 - Imported Wix spacing guidance adapted to this system: [imports/wix-spacing-adapter.md](imports/wix-spacing-adapter.md)
 - Shells, buttons, cards, icons, and mascot: [components.md](components.md)

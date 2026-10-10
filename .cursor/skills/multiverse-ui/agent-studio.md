@@ -24,6 +24,12 @@ Use these rules for task composition, run inspection, memory review, execution p
 - Pair the input with one primary action. Suggestions may scroll inside their own rail, but the page must never scroll horizontally.
 - Keep prototype limits near the action: scripted output does not establish capability, correctness, or learning.
 
+## Personal Agent Setup
+
+- Follow [agent-builder.md](agent-builder.md) when defining an agent or adding knowledge, memory, and context.
+- Treat setup as a foundation draft, not evidence that an agent exists or has learned.
+- Keep example records labeled and keep browser-only persistence explicit.
+
 ## Roles and Activity
 
 - Show role names in plain text with neutral, compact markers when identity must be scanned quickly.
